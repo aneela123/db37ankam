@@ -1,0 +1,15 @@
+extends layout
+ 
+block content
+  h1= title
+  - const shoes=[{shoename:"addidas",type:"running shoes",color:"blue",price:200},{shoename:"nike",type:"sports",color:"black",price:500},{shoename:"puma",type:"casual",color:"red",price:600},]
+  div(class="container-fluid")
+  div(class="row")
+    each shoe,index in shoes
+        div(class="col-sm-4" onclick=`buy(${index})`) #{shoe.shoename} - #{shoe.type} - #{shoe.color} - #{shoe.price}
+  script.
+     
+      function buy(itemNo)
+      {
+        alert(`You purchased Item ${itemNo+1}`)
+      }

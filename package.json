@@ -1,0 +1,31 @@
+{
+  "name": "wab37ankam",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "^4.3.1",
+    "express": "^4.17.1",
+    "http-errors": "^1.8.0",
+    "mongodb": "^3.6.6",
+    "mongoose": "^5.12.3",
+    "morgan": "^1.10.0",
+    "pug": "^3.0.2"
+  },
+  "description": "Aneela Server\r Hosted at [https://wab37ankam.herokuapp.com/]",
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aneela123/wab37ankam.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aneela123/wab37ankam/issues"
+  },
+  "homepage": "https://github.com/aneela123/wab37ankam#readme"
+}
