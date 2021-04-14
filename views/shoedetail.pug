@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  h1(id="AneelaTitle")= title
+
+  - let shoeid = toShow._id
+  - let shoename = toShow.shoename
+  - let type = toShow.type
+  - let color = toShow.color
+  - let price = toShow.price
+  div
+    div.row
+      div(class='costumeAttr mr-3') shoe ID is:
+      div(class="elements different") #{shoeid}
+    div.row
+      div(class='costumeAttr mr-3') shoe name is:
+      div(class="elements") #{shoename}
+    div.row
+      div(class='costumeAttr mr-3') shoe type is:
+      div(class="elements") #{type}
+    div.row
+      div(class='costumeAttr mr-3') shoe color is:
+      div(class="elements") #{color}
+    div.row
+      div(class='costumeAttr mr-3') shoe price is:
+      div(class="elements") #{price}

@@ -17,4 +17,5 @@ router.put('/shoes/:id', shoe_controller.shoe_update_put);
 router.get('/shoes/:id', shoe_controller.shoe_detail);
 // GET request for list of all shoe items.
 router.get('/shoes', shoe_controller.shoe_list);
+
 module.exports = router;

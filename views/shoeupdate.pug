@@ -1,0 +1,47 @@
+extends layout
+
+block content
+  h1= title
+
+  - let shoeid = toShow._id
+  - let shoename = toShow.shoename
+  - let type = toShow.type
+  - let color = toShow.color
+  - let price = toShow.price
+  
+  div.row(class='mb-2')
+    div.mr-1 ID is
+    div #{shoeid}
+  - let actionid = "/resource/shoes/" + shoeid
+  form(id='ShoeForm', action= actionid, method="PUT")
+    div.form-group
+        label.costumeAttr(for='shoename') Shoe Name
+        input#shoename(type='text', name='shoename', value= shoename )
+    div.form-group
+        label.costumeAttr(for='type') Shoe Type
+        input#type(type='text', name='type', value= type )
+    div.form-group
+        label.costumeAttr(for='color') Shoe color
+        input#color(type='text', name='color', value= color )
+    div.form-group
+        label.costumeAttr(for='price') Shoe price
+        input#price(type='number', name='price', value= price )
+    input(type="submit")
+
+  script.
+    document.forms['ShoeForm'].addEventListener('submit', (event) => {
+      event.preventDefault();
+      // TODO do something here to show user that form is being submitted
+      fetch(event.target.action, {
+        method: 'PUT',
+        body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+      }).then((resp) => {
+        return resp.json(); // or resp.text() or whatever the server sends
+      }).then((body) => {
+        alert("Update succeded")
+        // TODO handle body
+      }).catch((error) => {
+        // TODO handle error
+        alert("Update failed " + error )
+      });
+    });
