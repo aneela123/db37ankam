@@ -4,9 +4,7 @@ var router = express.Router();
 const shoe_controlers=require('../controllers/shoe')
  
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('shoes', { title: 'Search Results' });
-});
+router.get('/', shoe_controlers.shoe_view_all_Page);
 
 /* GET detail shoe page */
 router.get('/detail', shoe_controlers.shoe_view_one_Page);

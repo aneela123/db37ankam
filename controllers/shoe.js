@@ -83,9 +83,9 @@ exports.shoe_update_put = async function(req, res) {
 // Handle a show all view
 exports.shoe_view_all_Page = async function (req, res) {
     try {
-        theshoees = await Shoe.find();
-        console.log("njfndw")
-        res.render('shoes', { title: 'shoe Search Results', results: theshoes });
+       let theshoes = await Shoe.find();
+        console.log(theshoes)
+        res.render('shoes', { title: 'Shoe Search Results', results: theshoes });
     }
     catch (err) {
         res.send(`{"error": ${err}}`)
