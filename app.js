@@ -5,8 +5,6 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
 passport.use(new LocalStrategy(
   function(username, password, done) {
   Account.findOne({ username: username }, function (err, user) {
@@ -68,8 +66,8 @@ app.use(require('express-session')({
   resave: false,
   saveUninitialized: false
   }));
-  app.use(passport.initialize());
-  app.use(passport.session());
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
@@ -81,7 +79,7 @@ app.use('/resource',resourceRouter)
 // passport config
 // Use the existing connection
 // The Account model
-var Account =require('./models/account'));
+var Account =require('./models/account');
 passport.use(new LocalStrategy(Account.authenticate()));
 passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
