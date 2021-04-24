@@ -33,17 +33,17 @@ var shoe = require("./models/shoes");
 async function recreateDB() {
   // Delete everything
   await shoe.deleteMany();
-  let instance1 = new shoe({ shoename: "addidas", type: "running shoes", color: "blue", price: 200 });
+  let instance1 = new shoe({ shoename: "addidas", type: "running shoes", color: "blue", price: 1200 });
   instance1.save(function (err, doc) {
     if (err) return console.error(err);
     console.log("First object saved")
   });
-  let instance2 = new shoe({ shoename: "nike", type: "sports", color: "black", price: 500 });
+  let instance2 = new shoe({ shoename: "nike", type: "sports", color: "black", price: 1500 });
   instance2.save(function (err, doc) {
     if (err) return console.error(err);
     console.log("Second object saved")
   });
-  let instance3 = new shoe({ shoename: "puma", type: "casual", color: "red", price: 600 });
+  let instance3 = new shoe({ shoename: "puma", type: "casual", color: "red", price: 1600 });
   instance3.save(function (err, doc) {
     if (err) return console.error(err);
     console.log("Third object saved")

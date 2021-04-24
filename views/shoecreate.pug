@@ -2,20 +2,20 @@ extends layout
 
 block content
   h1= title
-
-  form(id='ShoeForm', action="/resource/shoes", method="POST")
+  div#errors(style:{display:block;}) 
+  form(id='ShoeForm' action="/resource/shoes" method="POST")
     div.form-group
-        label.costumeAttr(for='shoename') Shoe name
-        input#costumetype(type='text', name='shoename')
+      label.costumeAttr(for='shoename') Shoe name
+      input#costumetype(type='text' name='shoename')
     div.form-group
-        label.costumeAttr(for='type') Shoe type
-        input#size(type='text', name='type')
+      label.costumeAttr(for='type') Shoe type
+      input#size(type='text' name='type')
     div.form-group
-        label.costumeAttr(for='color') Shoe color
-        input#size(type='text', name='color')
+      label.costumeAttr(for='color') Shoe color
+      input#size(type='text' name='color')
     div.form-group
-        label.costumeAttr(for='price') Shoe price
-        input#cost(type='number', name='price')
+      label.costumeAttr(for='price') Shoe price
+      input#cost(type='number' name='price')
     input(type="submit")
 
   script.
@@ -26,10 +26,15 @@ block content
         method: 'POST',
         body: new URLSearchParams(new FormData(event.target)) // event.target is the form
       }).then((resp) => {
+        document.getElementById("errors").style.display="block"
         return resp.json(); // or resp.text() or whatever the server sends
       }).then((body) => {
-        alert("Save succeded")
-        // TODO handle body
+        if(body.name){
+          document.getElementById("errors").innerHTML=`${body.name}  \n ${body.message}\n`;
+          alert("Save Failed")
+        }else{
+          alert("Save succeded")
+        }
       }).catch((error) => {
         // TODO handle error
         alert("Save failed " + error )
